@@ -1,4 +1,4 @@
-# Developing a custom nano GPT-2 from scratch using PyTorch on the Fineweb dataset
+# Developing a custom nano GPT-2 from scratch using PyTorch and training using the Fineweb dataset
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
 ![PythonAnywhere](https://img.shields.io/badge/pythonanywhere-%232F9FD7.svg?style=for-the-badge&logo=pythonanywhere&logoColor=151515)
@@ -11,7 +11,7 @@ Developing a custom nano GPT-2 from scratch using PyTorch an train in the EduFin
 <img src="reports/figures/fineweb-dataset.png" width="90%" height="50%">
 <h6 align="center"> Example of the dataset used for the train and evaluation phase. For more details about the dataset you can visite the <a href="https://huggingface.co/datasets/HuggingFaceFW/fineweb">HuggingFace FineWEB</a>.</h6>
 
-**Note**: This experiments was based on [Andrej Karpathy](https://karpathy.ai) works called [nano GPT](https://github.com/karpathy/nanoGPT).
+**Note**: This experiments was based on [Andrej Karpathy](https://karpathy.ai) works, called [nano GPT](https://github.com/karpathy/nanoGPT).
 
 ---
 

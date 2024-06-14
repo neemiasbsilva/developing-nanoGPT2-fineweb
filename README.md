@@ -4,9 +4,11 @@
 ![PythonAnywhere](https://img.shields.io/badge/pythonanywhere-%232F9FD7.svg?style=for-the-badge&logo=pythonanywhere&logoColor=151515)
 
 
-Developing a custom nano GPT-2 from scratch using PyTorch an train in the EduFineWeb dataset. This repository was based on reproduce the [Open AI GPT-2 paper](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf) and using the hyper-parameters for trianing from [Open AI GPT-3 paper](https://arxiv.org/abs/2005.14165).
+Developing a custom nano GPT-2 from scratch using PyTorch an train in the EduFineWeb dataset. This repository was based on reproduce the [Open AI GPT-2 paper](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf) and using the hyper-parameters for trianing from [Open AI GPT-3 paper](https://arxiv.org/abs/2005.14165). The dataset used was the [FineWeb](https://huggingface.co/datasets/HuggingFaceFW/fineweb) (the smalest version around 10B gpt2 number of tokens).
 
-This experiments was based on [Andrej Karpathy](https://karpathy.ai) works called [nano GPT](https://github.com/karpathy/nanoGPT).
+**Note**: This experiments was based on [Andrej Karpathy](https://karpathy.ai) works called [nano GPT](https://github.com/karpathy/nanoGPT).
+
+---
 
 ## Project Organization
 
@@ -49,14 +51,16 @@ This experiments was based on [Andrej Karpathy](https://karpathy.ai) works calle
     │   └── manager_data.py
     │
     ├── configs       <- Get configs for data, train and GPT model
-    │   └── setup.py
+    │   |── setup.py
     │   └── config.yaml
     │
     ├── model         <- Scripts to build the GPT-2 model
-    │   └── transformer_blocks.py
+    │   |── transformer_blocks.py
     │   └── gpt2_model.py
     │
-    └── train.py  <- Scripts to train the GPT-2 model
+    ├── train.py  <- Scripts to train the GPT-2 model
+    └── generate.py  <- Scripts to generate answers from the GPT-2 custom 
+                        trained   model
 ```
 
 --------
@@ -75,6 +79,12 @@ After that, open the file config_inf.yaml (`src/config/config_inference.yaml`) a
 And finally, for run the inference (don't need a GPU for run), just type this command:
 ```
 python generate.py
+```
+
+The output will be stored in `reports/generation.json`:
+
+```
+
 ```
 
 

@@ -70,7 +70,7 @@ Developing a custom nano GPT-2 from scratch using PyTorch an train in the EduFin
 
 --------
 
-## Usage
+## Usage for text generation
 
 Clone the repository and create a conda environment:
 

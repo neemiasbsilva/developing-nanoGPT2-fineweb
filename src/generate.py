@@ -16,10 +16,10 @@ def generation_answer():
     
     device = "cpu"
 
-    # if torch.cuda.is_available():
-    #     device = "cuda"
-    # elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
-    #     device = "mps"
+    if torch.cuda.is_available():
+        device = "cuda"
+    elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+        device = "mps"
 
     logging.info(f"Using device: {device}")
     device_type = "cuda" if device.startswith("cuda") else "cpu" 
@@ -29,15 +29,21 @@ def generation_answer():
 
     # load checkpoint
     checkpoint_path = os.path.join(log_dir, f"model_{249:05d}.pt")
-    checkpoint = torch.load(checkpoint_path)
-    model = GPT2(config=checkpoint['config'])
-    model.load_state_dict(checkpoint['model'])
+    if (os.path.exists(checkpoint_path)):
+        checkpoint = torch.load(checkpoint_path)
+        model = GPT2(config=checkpoint['config'])
+        model.load_state_dict(checkpoint['model'])
+    else:
+        model = GPT2(config.gpt_config)
     model.to(device)
+    model = torch.compile(model)
     model.eval()
 
-    num_return_sequences = eval_config['eval_config']['num_return_sequence']
-    max_length = eval_config['eval_config']['max_length']
-    tokens = encoder.encode(eval_config['eval_config']['message'])
+    num_return_sequences = eval_config.eval_config.num_return_sequence
+    max_length = eval_config.eval_config.max_length
+    tokens = encoder.encode(eval_config.eval_config.message)
+    tokens = torch.tensor(tokens, dtype=torch.long)
+    tokens = tokens.unsqueeze(0).repeat(num_return_sequences, 1)
     xgen = tokens.to(device)
     sample_rng = torch.Generator(device=device)
     sample_rng.manual_seed(42)

@@ -5,6 +5,9 @@ from pydantic import BaseModel
 ROOT_DIR = '/'.join((s for s in os.path.dirname(__file__).split('/')[:-2]))
 LOG_DIR = os.path.join(ROOT_DIR, "logs/log")
 
+class DataConfig(BaseModel):
+    data_root: str
+
 class GPTConfig(BaseModel):
     block_size: int # max sequence length
     vocab_size: int
@@ -25,6 +28,7 @@ class TrainConfig(BaseModel):
 class Config(BaseModel):
     gpt_config: GPTConfig
     train_config: TrainConfig
+    data_config: DataConfig
 
 
 def create_config() -> dict:
@@ -38,6 +42,8 @@ def create_config() -> dict:
 
     _config = Config(
         gpt_config=GPTConfig(**parsed_config),
-        train_config=TrainConfig(**parsed_config)
+        train_config=TrainConfig(**parsed_config),
+        data_config=DataConfig(**parsed_config)
     )
     return _config
+

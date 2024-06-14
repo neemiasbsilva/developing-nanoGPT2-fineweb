@@ -2,6 +2,7 @@ import os
 import logging
 import numpy as np
 import torch
+from config import setup
 
 
 def load_tokens(filename):
@@ -17,7 +18,7 @@ class CustomDataLoader:
         self.process_rank = process_rank
         self.num_processes = num_processes
         assert split in {'train', 'val'}
-
+        data_root = os.path.join(setup.ROOT_DIR, data_root)
         shards = os.listdir(data_root)
         shards = [s for s in shards if split in s]
         shards = sorted(shards)

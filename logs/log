@@ -1,1 +1,4 @@
-2024-06-14 09:54:38,766 train.py gpt_config=GPTConfig(block_size=1024, vocab_size=50304, n_layer=12, n_head=12, n_embd=768) train_config=TrainConfig(random_state=42, batch_size=8, token_length=1024, max_lr=0.0006, warmup_steps=715, max_steps=19073)
+2024-06-14 10:32:23,074 train.py gpt_config=GPTConfig(block_size=1024, vocab_size=50304, n_layer=12, n_head=12, n_embd=768) train_config=TrainConfig(random_state=42, batch_size=8, token_length=1024, max_lr=0.0006, warmup_steps=715, max_steps=19073) data_config=DataConfig(data_root='data/processed/edu_fineweb10B')
+2024-06-14 10:32:24,062 train.py Using device: cuda
+2024-06-14 10:32:24,062 manager_data.py found 61 shards for split train
+2024-06-14 10:32:24,063 manager_data.py found 1 shards for split val

@@ -81,7 +81,7 @@ And finally, for run the inference (don't need a GPU for run), just type this co
 python generate.py
 ```
 
-The output will be stored in `reports/generation.json`:
+The text generation will be stored in `reports/generation.json`:
 
 ```
 

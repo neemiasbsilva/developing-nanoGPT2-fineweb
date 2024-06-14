@@ -75,7 +75,6 @@ Developing a custom nano GPT-2 from scratch using PyTorch an train in the EduFin
 Clone the repository and create a conda environment:
 
 ```
-pip install requirements.txt
 conda env create --name envname --file=environments.yml
 ```
 

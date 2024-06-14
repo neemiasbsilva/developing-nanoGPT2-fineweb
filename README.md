@@ -92,6 +92,8 @@ The text generation will be stored in `reports/generation.json`:
 
 ```
 
+## Train Resources
 
+For train was used a 4 GPU NVIDIA GeForce RTC 3090, the CPU used was Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz and the RAM memory with 130 GB.
 
 

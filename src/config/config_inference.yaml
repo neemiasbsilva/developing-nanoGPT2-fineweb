@@ -1,0 +1,3 @@
+message: "Hello GPT, I want you to explain linear regression"
+num_return_sequence: 6
+max_length: 64

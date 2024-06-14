@@ -1,0 +1,18 @@
+# data config
+data_root: data/processed/edu_fineweb10B
+
+# training hyper-parameters
+random_state: 42
+batch_size: 8
+token_length: 1024
+max_lr: 6e-4
+warmup_steps: 715
+max_steps: 19073
+
+# gpt config
+block_size: 1024
+vocab_size: 50304
+n_layer: 12
+n_head: 12
+n_embd: 768
+

@@ -40,23 +40,22 @@ Developing a custom nano GPT-2 from scratch using PyTorch and the EduFineWeb dat
 │
 ├── setup.cfg          <- Configuration file for flake8
 │
-└── custom_nanogpt2_fineweb                <- Source code for use in this project.
+└── src                <- Source code for use in this project.
     │
-    ├── __init__.py    <- Makes custom_nanogpt2_fineweb a Python module
+    ├── __init__.py    <- Makes src a Python module
     │
-    ├── data           <- Scripts to download or generate data
-    │   └── make_dataset.py
+    ├── data           <- Scripts to manager the datta
+    │   └── manager_data.py
     │
-    ├── features       <- Scripts to turn raw data into features for modeling
-    │   └── build_features.py
+    ├── configs       <- Get configs for data, train and GPT model
+    │   └── setup.py
+    │   └── config.yaml
     │
-    ├── models         <- Scripts to train models and then use trained models to make
-    │   │                 predictions
-    │   ├── predict_model.py
-    │   └── train_model.py
+    ├── model         <- Scripts to build the GPT-2 model
+    │   └── transformer_blocks.py
+    │   └── gpt2_model.py
     │
-    └── visualization  <- Scripts to create exploratory and results oriented visualizations
-        └── visualize.py
+    └── train.py  <- Scripts to train the GPT-2 model
 ```
 
 --------

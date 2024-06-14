@@ -7,6 +7,8 @@ from config.setup import create_config
 import torch
 from torch.distributed import init_process_group
 from torch.nn.parallel import DistributedDataParallel as DDP
+import tiktoken
+from model.gpt2_model import GPT2
 
 
 
@@ -49,6 +51,12 @@ def train():
                                     token_length=config.train_config.token_length, process_rank=ddp_rank, num_processes=ddp_world_rank, split='train')
     val_loader = CustomDataLoader(data_root=config.data_config.data_root, master_process=master_process, batch_size=config.train_config.batch_size, 
                                   token_length=config.train_config.token_length, process_rank=ddp_rank, num_processes=ddp_world_rank, split='val')
+    
+
+    encoder = tiktoken.get_encoding("gpt2")
+
+    batch_size
+    sequence_length 
 
 if __name__ == "__main__":
     np.random.seed(42)

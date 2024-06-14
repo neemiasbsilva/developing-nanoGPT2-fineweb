@@ -19,7 +19,7 @@ class GPTConfig(BaseModel):
 class TrainConfig(BaseModel):
     random_state: int
     batch_size: int
-    token_length: int
+    sequence_length: int
     max_lr: float
     warmup_steps: int
     max_steps: int

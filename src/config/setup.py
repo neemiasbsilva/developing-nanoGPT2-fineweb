@@ -5,6 +5,12 @@ from pydantic import BaseModel
 ROOT_DIR = '/'.join((s for s in os.path.dirname(__file__).split('/')[:-2]))
 LOG_DIR = os.path.join(ROOT_DIR, "logs/log")
 
+class EvalConfig(BaseModel):
+    message: str
+    num_return_sequence: int
+    max_length: int
+
+
 class DataConfig(BaseModel):
     data_root: str
 
@@ -49,3 +55,14 @@ def create_config() -> dict:
     )
     return _config
 
+
+def create_eval_config() -> dict:
+    CONFIG_FILE_PATH = os.path.join(os.path.dirname(__file__), "config_inference.yaml")
+    
+    with open(CONFIG_FILE_PATH, 'r') as f:
+        parsed_config = yaml.load(f, Loader=yaml.Loader)
+
+    _config = Config(
+        eval_config=EvalConfig(**parsed_config),
+    )
+    return _config

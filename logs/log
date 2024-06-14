@@ -1,4 +1,10 @@
-2024-06-14 10:32:23,074 train.py gpt_config=GPTConfig(block_size=1024, vocab_size=50304, n_layer=12, n_head=12, n_embd=768) train_config=TrainConfig(random_state=42, batch_size=8, token_length=1024, max_lr=0.0006, warmup_steps=715, max_steps=19073) data_config=DataConfig(data_root='data/processed/edu_fineweb10B')
-2024-06-14 10:32:24,062 train.py Using device: cuda
-2024-06-14 10:32:24,062 manager_data.py found 61 shards for split train
-2024-06-14 10:32:24,063 manager_data.py found 1 shards for split val
+2024-06-14 12:21:00,073 train.py gpt_config=GPTConfig(block_size=1024, vocab_size=50304, n_layer=12, n_head=12, n_embd=768) train_config=TrainConfig(random_state=42, total_batch_size=5242888, batch_size=8, sequence_length=1024, max_lr=0.0006, warmup_steps=715, max_steps=19073, weight_decay=0.1) data_config=DataConfig(data_root='data/processed/edu_fineweb10B')
+2024-06-14 12:21:01,745 train.py Using device: cuda
+2024-06-14 12:21:02,131 train.py Total desired batch size: 5242888
+2024-06-14 12:21:02,131 train.py => calculated gradient accumulation steps: 640
+2024-06-14 12:21:02,132 manager_data.py found 99 shards for split train
+2024-06-14 12:21:02,763 manager_data.py found 1 shards for split val
+2024-06-14 12:21:11,291 gpt2_model.py num decayed tensors: 51 | num of parameters: 162988032
+2024-06-14 12:21:11,292 gpt2_model.py num non-decayed tensors: 98 | num of parameters: 121344
+2024-06-14 12:21:35,236 train.py validation loss: 10.9429
+2024-06-14 12:23:40,619 train.py step     0 | loss: 10.948181 | lr 8.3916e-07 | norm: 14.9232 | dt: 149326.07ms | tok/sec: 35110.28

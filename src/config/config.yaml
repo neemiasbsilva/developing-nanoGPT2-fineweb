@@ -3,11 +3,13 @@ data_root: data/processed/edu_fineweb10B
 
 # training hyper-parameters
 random_state: 42
+total_batch_size: 5242888 # 0.5M tokens approximately
 batch_size: 8
 sequence_length: 1024
 max_lr: 6e-4
 warmup_steps: 715
 max_steps: 19073
+weight_decay: 0.1
 
 # gpt config
 block_size: 1024

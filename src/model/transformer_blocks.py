@@ -20,9 +20,9 @@ class CausalSelfAttention(nn.Module):
         batch_size, sequence_length, embd_dim = x.size()
         qkv = self.c_attn(x)
         q, k, v = qkv.split(self.n_embd, dim=2)
-        k = k.view(batch_size, sequence_length, embd_dim // self.n_head).transpose(1, 2)
-        q = q.view(batch_size, sequence_length, embd_dim // self.n_head).transpose(1, 2)
-        v = v.view(batch_size, sequence_length, embd_dim // self.n_head).transpose(1, 2)
+        k = k.view(batch_size, sequence_length, self.n_head, embd_dim // self.n_head).transpose(1, 2)
+        q = q.view(batch_size, sequence_length, self.n_head, embd_dim // self.n_head).transpose(1, 2)
+        v = v.view(batch_size, sequence_length, self.n_head, embd_dim // self.n_head).transpose(1, 2)
 
         y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
         y = y.transpose(1, 2).contiguous().view(batch_size, sequence_length, embd_dim)

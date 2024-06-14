@@ -2,8 +2,8 @@ import logging
 import inspect
 import torch
 import torch.nn as nn
-from transformer_blocks import Block
 from torch.nn import functional as F
+from model.transformer_blocks import Block
 
 
 class GPT2(nn.Module):
@@ -15,7 +15,7 @@ class GPT2(nn.Module):
             wte = nn.Embedding(config.vocab_size, config.n_embd), 
             wpe = nn.Embedding(config.block_size, config.n_embd),
             h = nn.ModuleList([Block(config) for _ in range(config.n_layer)]),
-            ln_f = nn.LayerNorm(config.embd)
+            ln_f = nn.LayerNorm(config.n_embd)
         ))
 
         self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)
@@ -57,10 +57,10 @@ class GPT2(nn.Module):
         
         return logits, loss
     
-    
+
     def configure_optimizers(self, weight_decay, learning_rate, device):
         param_dict = {pn: p for pn, p in self.named_parameters()}
-        param_dict = {pn: p for pn, p in param_dict if p.requires_grad}
+        param_dict = {pn: p for pn, p in param_dict.items() if p.requires_grad}
 
         decay_params = [p for _, p in param_dict.items() if p.dim() >= 2]
         nodecay_params = [p for _, p in param_dict.items() if p.dim() < 2]

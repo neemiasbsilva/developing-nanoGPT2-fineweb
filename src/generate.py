@@ -28,7 +28,7 @@ def generation_answer():
     log_dir = os.path.join(setup.ROOT_DIR, 'models')
 
     # load checkpoint
-    checkpoint_path = os.path.join(log_dir, f"model_{1750:05d}.pt")
+    checkpoint_path = os.path.join(log_dir, f"model_{2000:05d}.pt")
     if (os.path.exists(checkpoint_path)):
         checkpoint = torch.load(checkpoint_path, mmap=True)
         config_model = checkpoint['config']

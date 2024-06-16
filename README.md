@@ -78,10 +78,7 @@ Clone the repository and create a conda environment:
 conda env create --name envname --file=environments.yml
 ```
 
-Download the model file available in the link below and put in the follow path `models/`
-```
-download this models file
-```
+Download the model file available in the link below and put in the follow path `models/` ([download this models checkpoint](https://drive.google.com/file/d/1YZwtNmsrfY1zjMr1_38kF0Lo9bDicA7O/view?usp=share_link)).
 
 
 After that, open the file config_inf.yaml (`src/config/config_inference.yaml`) and choose the message you want (e.g `message: "Hello GPT, can you explain what is machine learning?"`)

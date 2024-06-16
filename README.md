@@ -78,7 +78,7 @@ Clone the repository and create a conda environment:
 conda env create --name envname --file=environments.yml
 ```
 
-After that, open the file config_inf.yaml (`src/config/config_inference.yaml`) and choose the message you want (e.g `message: "Hello GPT, I want you to explain linear regression"`)
+After that, open the file config_inf.yaml (`src/config/config_inference.yaml`) and choose the message you want (e.g `message: "Hello GPT, What is math?"`)
 
 And finally, for run the inference (don't need a GPU for run), just type this command:
 ```

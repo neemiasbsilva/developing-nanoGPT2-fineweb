@@ -78,7 +78,13 @@ Clone the repository and create a conda environment:
 conda env create --name envname --file=environments.yml
 ```
 
-After that, open the file config_inf.yaml (`src/config/config_inference.yaml`) and choose the message you want (e.g `message: "Hello GPT, What is math?"`)
+Download the model file available in the link below and put in the follow path `models/`
+```
+download this models file
+```
+
+
+After that, open the file config_inf.yaml (`src/config/config_inference.yaml`) and choose the message you want (e.g `message: "Hello GPT, can you explain what is machine learning?"`)
 
 And finally, for run the inference (don't need a GPU for run), just type this command:
 ```

@@ -28,15 +28,22 @@ def generation_answer():
     log_dir = os.path.join(setup.ROOT_DIR, 'models')
 
     # load checkpoint
-    checkpoint_path = os.path.join(log_dir, f"model_{249:05d}.pt")
+    checkpoint_path = os.path.join(log_dir, f"model_{1750:05d}.pt")
     if (os.path.exists(checkpoint_path)):
-        checkpoint = torch.load(checkpoint_path)
-        model = GPT2(config=checkpoint['config'])
-        model.load_state_dict(checkpoint['model'])
+        checkpoint = torch.load(checkpoint_path, mmap=True)
+        config_model = checkpoint['config']
+        model_state_dict = checkpoint['model']
+        step = checkpoint['step']
+        val_loss = checkpoint['val_loss']
+        print(step, val_loss)
+
+        model = GPT2(config_model)
+        model.to(device)
+        model = torch.compile(model)
+        model.load_state_dict(model_state_dict, assign=True)
     else:
         model = GPT2(config.gpt_config)
-    model.to(device)
-    model = torch.compile(model)
+        
     model.eval()
 
     num_return_sequences = eval_config.eval_config.num_return_sequence

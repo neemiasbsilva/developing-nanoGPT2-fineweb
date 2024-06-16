@@ -39,6 +39,10 @@ class Config(BaseModel):
     data_config: DataConfig
 
 
+class GenerateConfig(BaseModel):
+    eval_config: EvalConfig
+
+
 def create_config() -> dict:
     """"
     Run validation on config values.
@@ -62,7 +66,7 @@ def create_eval_config() -> dict:
     with open(CONFIG_FILE_PATH, 'r') as f:
         parsed_config = yaml.load(f, Loader=yaml.Loader)
 
-    _config = Config(
+    _config = GenerateConfig(
         eval_config=EvalConfig(**parsed_config),
     )
     return _config

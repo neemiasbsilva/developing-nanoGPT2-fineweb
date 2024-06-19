@@ -3,6 +3,13 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
 ![PythonAnywhere](https://img.shields.io/badge/pythonanywhere-%232F9FD7.svg?style=for-the-badge&logo=pythonanywhere&logoColor=151515)
 
+## Table of contents
+
+- [About](#about);
+- [Project Organization](#project-organization);
+- [Train resources](#train-resources);
+- [Usage for text generation](#usage-for-text-generation).
+
 ## About
 
 Developing a custom nano GPT-2 from scratch using PyTorch an train in the EduFineWeb dataset. This repository was based on reproduce the [Open AI GPT-2 paper](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf) and using the hyper-parameters for trianing from [Open AI GPT-3 paper](https://arxiv.org/abs/2005.14165). The dataset used was the [FineWeb 🍷](https://huggingface.co/datasets/HuggingFaceFW/fineweb) (the smalest version around 10B gpt2 number of tokens).
@@ -70,6 +77,13 @@ Developing a custom nano GPT-2 from scratch using PyTorch an train in the EduFin
 
 --------
 
+
+## Train Resources
+
+The training process was conducted using a robust setup, featuring a system equipped with four NVIDIA GeForce RTX 3090 GPUs. The computational power was further supported by an Intel® Core™ i7-10700 CPU running at 2.90 GHz, complemented by a substantial 130 GB of RAM.
+
+---
+
 ## Usage for text generation
 
 Clone the repository and create a conda environment:
@@ -94,8 +108,5 @@ The text generation will be stored in `reports/generation.json`:
 
 ```
 
-## Train Resources
-
-For train was used a 4 GPU NVIDIA GeForce RTC 3090, the CPU used was Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz and the RAM memory with 130 GB.
 
 
